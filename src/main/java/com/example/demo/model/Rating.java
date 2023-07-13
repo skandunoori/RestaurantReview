@@ -1,30 +1,33 @@
 package com.example.demo.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Rating {
 	
 	@Id
-	private int ratingId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "rating_id")
+	private long ratingId;
 	private int value; //will this be enum?
-	public int getRatingId() {
-		return ratingId;
-	}
-	public void setRatingId(int ratingId) {
-		this.ratingId = ratingId;
-	}
-	public int getValue() {
-		return value;
-	}
-	public void setValue(int value) {
-		this.value = value;
-	}
-	@Override
-	public String toString() {
-		return "Rating [ratingId=" + ratingId + ", value=" + value + "]";
-	}
 	
+	@ManyToOne
+	private Restaurant restaurant;
+	
+	@ManyToOne
+	private User user;
 	
 }

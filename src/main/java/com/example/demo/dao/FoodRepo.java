@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.model.Food;
 
-public interface FoodRepo extends JpaRepository<Food, Integer>{
+public interface FoodRepo extends JpaRepository<Food, Long>{
 
 }
