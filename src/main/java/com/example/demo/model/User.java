@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,8 +43,10 @@ public class User {
 	private Address address;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
+	@JsonIgnore
 	private Set<Rating> ratings = new HashSet<>();
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
-	private Set<Comments> comments = new HashSet<>();
+	@JsonIgnore
+	private Set<Comment> comments = new HashSet<>();
 }

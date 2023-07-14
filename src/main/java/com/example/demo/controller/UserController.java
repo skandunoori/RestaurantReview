@@ -7,16 +7,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.UserRepo;
 import com.example.demo.model.User;
+import com.example.demo.service.UserService;
 
 @RestController
 public class UserController {
 	
-	@Autowired
-	private UserRepo repo;
+	private UserService userService;
 	
+	public UserController(UserService userService) {
+		super();
+		this.userService = userService;
+	}
+
+
+
 	@PostMapping("/user")
 	public User addUser(@RequestBody User user) {
-		return repo.save(user);
+		return userService.saveUser(user);
 	}
 
 }

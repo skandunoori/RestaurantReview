@@ -1,25 +1,32 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.RestaurantRepo;
 import com.example.demo.model.Restaurant;
+import com.example.demo.service.RestaurantService;
 
 @RestController
+@RequestMapping("/restaurant")
 public class RestaurantController {
 	
-	@Autowired
-	private RestaurantRepo restaurantRepo;
+	private RestaurantService restaurantService;
 	
-	@PostMapping("/restaurant")
-	public Restaurant addRestaurant(@RequestBody Restaurant res){
-		System.out.println(res.toString());
-		
-		return restaurantRepo.save(res);
+	public RestaurantController(RestaurantService restaurantService) {
+		super();
+		this.restaurantService = restaurantService;
+	}
+	
+//	@GetMapping("/restaurant")
+
+	@PostMapping()
+	public Restaurant addRestaurant(@RequestBody Restaurant restaurant){		
+		return restaurantService.saveRestaurant(restaurant);
 	}
 
 }
