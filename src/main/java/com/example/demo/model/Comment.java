@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,8 +15,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "Comment")
-public class Comments {
+@Table(name = "comments")
+public class Comment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,9 +25,11 @@ public class Comments {
 	private String comment;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Restaurant restaurant;
 	
 	@ManyToOne
+	@JsonIgnore
 	private User user;
 	
 	

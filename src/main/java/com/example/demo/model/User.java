@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "User")
+@Table(name = "users")
 public class User {
 	
 	@Id
@@ -44,5 +46,5 @@ public class User {
 	private Set<Rating> ratings = new HashSet<>();
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
-	private Set<Comments> comments = new HashSet<>();
+	private Set<Comment> comments = new HashSet<>();
 }
