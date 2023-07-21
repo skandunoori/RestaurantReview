@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "restaurant")
+@Table(name = "restaurants")
 public class Restaurant {
 	
 	@Id
@@ -33,23 +33,23 @@ public class Restaurant {
 	private String name;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn()
+	@JoinColumn(name = "contact_id")
 	private Contact contact;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_address_id")
+	@JoinColumn(name = "address_id")
 	private Address address;
 	
 	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval=true)
-	@JsonIgnore
+//	@JsonIgnore
 	private Set<Rating> ratings = new HashSet<>();
 	
 	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval=true)
-	@JsonIgnore
+//	@JsonIgnore
 	private Set<Comment> comments = new HashSet<>();
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
-	@JoinColumn(name = "fk_restaurant_id", referencedColumnName = "restuarant_id")
+	@JoinColumn(name = "restaurant_id", referencedColumnName = "restuarant_id")
 	private Set<Menu> menu = new HashSet<>();
 	
 

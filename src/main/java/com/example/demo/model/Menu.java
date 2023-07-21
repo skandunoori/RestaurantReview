@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,5 +32,9 @@ public class Menu {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_food_id")
 	private Food food;
+	
+	@ManyToOne
+	@JsonIgnore
+	private Restaurant restaurant;
 	
 }

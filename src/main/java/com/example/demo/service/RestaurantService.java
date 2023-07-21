@@ -1,7 +1,8 @@
 package com.example.demo.service;
 
 import java.util.List;
-import java.util.Optional;
+
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 
 import com.example.demo.model.Restaurant;
 
@@ -11,9 +12,9 @@ public interface RestaurantService {
 	 
 	List<Restaurant> getRestaurants();
 	
-	Optional<Restaurant> getRestaurantById(Long id);
+	Restaurant getRestaurantById(Long id) throws NotFoundException;
 	
-	Restaurant updateRestaurant(Restaurant restaurant, Long id);
+	Restaurant updateRestaurant(Restaurant restaurant, Long id) throws NotFoundException;
 	
 	void deleteRestaurant(Long id);
 	

@@ -1,10 +1,10 @@
 package com.example.demo.service.impl;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
-
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import com.example.demo.dao.UserRepo;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
@@ -31,14 +31,22 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public Optional<User> getUserById(Long id) {
-		return userRepository.findById(id);
+	public User getUserById(Long id) throws NotFoundException {
+		return userRepository.findById(id).orElseThrow(
+				() -> new NotFoundException());
 	}
 
 	@Override
-	public User updateUser(User user, Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User updateUser(User user, Long id) throws NotFoundException {
+		User _user = userRepository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("User not found"));
+		
+		_user.setFirst_name(user.getFirst_name());
+		_user.setLast_name(user.getLast_name());
+		_user.setGender(user.getGender());
+		_user.setBirth_date(user.getBirth_date());
+		
+		return userRepository.save(_user);
 	}
 
 	@Override

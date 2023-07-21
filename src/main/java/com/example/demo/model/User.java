@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "User")
+@Table(name = "users")
 public class User {
 	
 	@Id
@@ -43,10 +43,8 @@ public class User {
 	private Address address;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
-	@JsonIgnore
 	private Set<Rating> ratings = new HashSet<>();
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)
-	@JsonIgnore
 	private Set<Comment> comments = new HashSet<>();
 }

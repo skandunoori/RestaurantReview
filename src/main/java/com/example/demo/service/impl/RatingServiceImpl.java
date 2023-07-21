@@ -87,8 +87,6 @@ public class RatingServiceImpl implements RatingService{
 		if(optRating.isPresent()) {
 			_rating = optRating.get();
 			_rating.setValue(rating.getValue());
-//			_rating.setRestaurant(rating.getRestaurant());
-//			_rating.setUser(rating.getUser());
 		}
 		return ratingRepository.save(_rating);
 	}
