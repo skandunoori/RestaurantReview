@@ -1,8 +1,6 @@
 package com.example.demo.service.impl;
 
 import java.util.List;
-
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +8,9 @@ import com.example.demo.dao.ContactRepo;
 import com.example.demo.model.Contact;
 import com.example.demo.service.ContactService;
 
+/**
+ * Class that implements ContactService interface
+ */
 @Service
 public class ContactServiceImpl implements ContactService{
 

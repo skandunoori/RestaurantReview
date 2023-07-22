@@ -1,11 +1,11 @@
 package com.example.demo.model;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,6 +19,9 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The User class represents a user entity in the application.
+ */
 @Entity
 @Getter
 @Setter
@@ -29,17 +32,18 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private long userId;
+	@Nonnull
 	private String first_name;
 	private String last_name;
 	private String gender;
 	private String birth_date;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_contact_id")
+	@JoinColumn(name = "contact_id")
 	private Contact contact;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_address_id")
+	@JoinColumn(name = "address_id")
 	private Address address;
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval=true)

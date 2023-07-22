@@ -9,6 +9,9 @@ import com.example.demo.dao.FoodRepo;
 import com.example.demo.model.Food;
 import com.example.demo.service.FoodService;
 
+/**
+ * Class that implements FoodService interface
+ */
 @Service
 public class FoodServiceImpl implements FoodService{
 	

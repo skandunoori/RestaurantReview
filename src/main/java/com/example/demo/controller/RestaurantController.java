@@ -18,37 +18,71 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Restaurant;
 import com.example.demo.service.RestaurantService;
 
+/**
+ * Controller class for managing CRUD operations on Restaurant entities.
+ */
 @RestController
 @RequestMapping("/restaurant")
 public class RestaurantController {
 	
 	private RestaurantService restaurantService;
 	
+	//Constructor to inject RestaurantService dependency
 	public RestaurantController(RestaurantService restaurantService) {
 		super();
 		this.restaurantService = restaurantService;
 	}
-
+	
+	/**
+	 * Create a new restaurant.
+	 * 
+	 * @param restaurant The Restaurant object containing restaurant details to be saved.
+	 * @return The saved restaurant object.
+	 */
 	@PostMapping()
 	public Restaurant addRestaurant(@RequestBody Restaurant restaurant){		
 		return restaurantService.saveRestaurant(restaurant);
 	}
 	
+	/**
+	 * Get all restaurants.
+	 * 
+	 * @return A list of all restaurants in the database.
+	 */
 	@GetMapping()
 	public List<Restaurant> getRestaurants(){
 		return restaurantService.getRestaurants();
 	}
 	
+	/**
+	 * Get a restaurant by its ID.
+	 * 
+	 * @param id The Id of the restaurant to retrieve.
+	 * @return The restaurant object with the specified ID, or null if not found.
+	 */
 	@GetMapping("/{id}")
 	public Restaurant getRestaurantById(@PathVariable("id") long id) throws NotFoundException {
 		return restaurantService.getRestaurantById(id);
 	}
 	
+	/**
+	 * Update an existing restaurant by its ID.
+	 * 
+	 * @param restaurant The Restaurant object containing updated restaurant details.
+	 * @param id The ID of the restaurant to be updated.
+	 * @return The updated restaurant object.
+	 */
 	@PutMapping("/{id}")
 	public Restaurant updateRestaurant(@RequestBody Restaurant restaurant, @PathVariable("id") long id) throws NotFoundException {
 		return restaurantService.updateRestaurant(restaurant, id);
 	}
 	
+	/**
+	 * Delete a restaurant by its ID.
+	 * 
+	 * @param id The ID of the restaurant to be deleted.
+	 * @return ResponseEntity with a success message or an error message if the restaurant is not found.
+	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteRestaurant(@PathVariable("id") long id) {
 		restaurantService.deleteRestaurant(id);

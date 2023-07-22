@@ -13,6 +13,9 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The Rating class represents a rating entity in the application.
+ */
 @Entity
 @Getter
 @Setter
