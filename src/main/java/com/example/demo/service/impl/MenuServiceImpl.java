@@ -11,6 +11,9 @@ import com.example.demo.model.Menu;
 import com.example.demo.model.Restaurant;
 import com.example.demo.service.MenuService;
 
+/**
+ * Class that implements MenuService interface
+ */
 @Service
 public class MenuServiceImpl implements MenuService{
 	

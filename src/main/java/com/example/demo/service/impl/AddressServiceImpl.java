@@ -9,6 +9,9 @@ import com.example.demo.dao.AddressRepo;
 import com.example.demo.model.Address;
 import com.example.demo.service.AddressService;
 
+/**
+ * Class that implements AddressService interface
+ */
 @Service
 public class AddressServiceImpl implements AddressService{
 	

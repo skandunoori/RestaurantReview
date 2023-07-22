@@ -2,8 +2,6 @@ package com.example.demo.service.impl;
 
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.CommentRepo;
@@ -14,6 +12,9 @@ import com.example.demo.model.Restaurant;
 import com.example.demo.model.User;
 import com.example.demo.service.CommentService;
 
+/**
+ * Class that implements CommentService interface
+ */
 @Service
 public class CommentServiceImpl implements CommentService{
 	

@@ -14,6 +14,9 @@ import com.example.demo.model.Restaurant;
 import com.example.demo.model.User;
 import com.example.demo.service.RatingService;
 
+/**
+ * Class that implements RatingService interface
+ */
 @Service
 public class RatingServiceImpl implements RatingService{
 

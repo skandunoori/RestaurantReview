@@ -7,12 +7,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The Address class represents a address entity in the application.
+ */
 @Entity
 @Getter
 @Setter
+@Table(name = "addresses")
 public class Address {
 	
 	@Id

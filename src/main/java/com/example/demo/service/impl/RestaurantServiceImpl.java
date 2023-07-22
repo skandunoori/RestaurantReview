@@ -1,26 +1,19 @@
 package com.example.demo.service.impl;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.dao.AddressRepo;
 import com.example.demo.dao.RestaurantRepo;
-import com.example.demo.model.Address;
-import com.example.demo.model.Rating;
 import com.example.demo.model.Restaurant;
 import com.example.demo.service.RestaurantService;
 
+/**
+ * Class that implements RestaurantService interface
+ */
 @Service
 public class RestaurantServiceImpl implements RestaurantService{
 
 	private RestaurantRepo restaurantRepository;
-	
-	private AddressRepo addressRepository;
 	
 	public RestaurantServiceImpl(RestaurantRepo restaurantRepository) {
 		super();
@@ -29,8 +22,6 @@ public class RestaurantServiceImpl implements RestaurantService{
 
 	@Override
 	public Restaurant saveRestaurant(Restaurant restaurant) {
-		Address address = restaurant.getAddress();
-		
 		return restaurantRepository.save(restaurant);
 	}
 
@@ -40,15 +31,15 @@ public class RestaurantServiceImpl implements RestaurantService{
 	}
 
 	@Override
-	public Restaurant getRestaurantById(Long id) throws NotFoundException {
+	public Restaurant getRestaurantById(Long id) {
 		return restaurantRepository.findById(id).orElseThrow(
-				() -> new NotFoundException());
+				() -> new ResourceNotFoundException("Restaurant not found."));
 	}
 
 	@Override
-	public Restaurant updateRestaurant(Restaurant restaurant, Long id) throws NotFoundException {
+	public Restaurant updateRestaurant(Restaurant restaurant, Long id) {
 		Restaurant _restaurant = restaurantRepository.findById(id).orElseThrow(
-				() -> new NotFoundException());
+				() -> new ResourceNotFoundException("estaurant not found to update."));
 		_restaurant.setName(restaurant.getName());
 		
 		return restaurantRepository.save(_restaurant);

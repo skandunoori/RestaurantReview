@@ -19,6 +19,9 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The Restaurant class represents a restaurant entity in the application.
+ */
 @Entity
 @Getter
 @Setter
@@ -29,7 +32,7 @@ public class Restaurant {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "restuarant_id")
 	private long restuarantId;
-	@Nonnull
+//	@Nonnull
 	private String name;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -41,15 +44,12 @@ public class Restaurant {
 	private Address address;
 	
 	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval=true)
-//	@JsonIgnore
 	private Set<Rating> ratings = new HashSet<>();
 	
 	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval=true)
-//	@JsonIgnore
 	private Set<Comment> comments = new HashSet<>();
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
-	@JoinColumn(name = "restaurant_id", referencedColumnName = "restuarant_id")
+	@OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval=true)
 	private Set<Menu> menu = new HashSet<>();
 	
 
