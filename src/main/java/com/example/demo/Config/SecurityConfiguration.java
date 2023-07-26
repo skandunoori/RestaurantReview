@@ -1,5 +1,6 @@
 package com.example.demo.Config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -9,12 +10,18 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.example.demo.Filter.JwtOnePerRequestFilter;
 
 //@EnableWebSecurity
 @Configuration
 public class SecurityConfiguration{
 	
 	private final AuthenticationConfiguration authenticationConfiguration = new AuthenticationConfiguration();
+	
+	@Autowired
+	JwtOnePerRequestFilter jwtOnePerRequestFilter;
 	
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {	
@@ -24,13 +31,15 @@ public class SecurityConfiguration{
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 	
-		http.authorizeHttpRequests(auth -> auth
+		http.csrf(AbstractHttpConfigurer::disable)
+				.authorizeHttpRequests(auth -> auth
 				.requestMatchers("/authenticate")
 				.permitAll()
 				.anyRequest()
-				.authenticated())
-				.csrf(AbstractHttpConfigurer::disable);
-				
+				.authenticated());
+		http.sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+		
+		http.addFilterBefore(jwtOnePerRequestFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
 		
 	}

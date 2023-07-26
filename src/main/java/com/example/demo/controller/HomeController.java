@@ -38,7 +38,7 @@ public class HomeController {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
 		}
 		catch(Exception e) {
-			throw new Exception("Invalid username or password");
+			throw new Exception("Invalid username or password"+e);
 		}
 		
 		String username = request.getUsername();
