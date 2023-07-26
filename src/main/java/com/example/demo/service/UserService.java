@@ -48,5 +48,9 @@ public interface UserService {
 	 * @param id The ID of the user to be deleted.
 	 */
 	void deleteUser(Long id);
+	
+	User findByUsername(String username);
+	
+	User findByPassword(String password);
 
 }

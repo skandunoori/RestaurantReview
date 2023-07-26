@@ -9,5 +9,8 @@ import com.example.demo.model.User;
  * It provides pre-defined methods for interacting with the underlying database to perform CRUD operations on user entities.
  */
 public interface UserRepo extends JpaRepository<User, Long>{
-
+	
+	User findByUsername(String username);
+	
+	User findByPassword(String password);
 }

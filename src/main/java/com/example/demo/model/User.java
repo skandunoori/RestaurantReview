@@ -37,6 +37,10 @@ public class User {
 	private String last_name;
 	private String gender;
 	private String birth_date;
+	@Column(nullable = false, unique = true)
+	private String username;
+//	@Column(nullable = false)
+	private String password;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "contact_id")
