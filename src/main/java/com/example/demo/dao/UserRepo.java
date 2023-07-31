@@ -1,5 +1,7 @@
 package com.example.demo.dao;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.model.User;
@@ -10,7 +12,7 @@ import com.example.demo.model.User;
  */
 public interface UserRepo extends JpaRepository<User, Long>{
 	
-	User findByUsername(String username);
+	Optional<User> findByUsername(String username);
 	
-	User findByPassword(String password);
+//	User findByPassword(String password);
 }

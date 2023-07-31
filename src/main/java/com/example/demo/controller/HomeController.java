@@ -15,6 +15,9 @@ import com.example.demo.model.AuthenticateRequest;
 import com.example.demo.model.AuthenticateResponse;
 import com.example.demo.service.impl.CustomUserDetailsService;
 
+/**
+ * This class represents a REST controller for handling endpoints related to user authentications.
+ */
 @RestController
 public class HomeController {
 	
@@ -32,6 +35,12 @@ public class HomeController {
 	@Autowired
 	JWTUtil jwtUtil;
 	
+	/**
+     * Endpoint to handle user authentication and generate a JWT token upon successful authentication.
+     * @param request An AuthenticateRequest object containing the user's credentials (username and password).
+     * @return A ResponseEntity containing an AuthenticateResponse object with the generated JWT token.
+     * @throws Exception If an exception occurs during the authentication process.
+     */
 	@PostMapping("/authenticate")
 	public ResponseEntity<AuthenticateResponse> createAndAuthenticateReq(@RequestBody AuthenticateRequest request) throws Exception{
 		try {

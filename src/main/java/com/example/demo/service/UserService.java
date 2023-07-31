@@ -50,7 +50,7 @@ public interface UserService {
 	void deleteUser(Long id);
 	
 	User findByUsername(String username);
-	
-	User findByPassword(String password);
+//	
+//	User findByPassword(String password);
 
 }

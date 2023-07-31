@@ -39,7 +39,6 @@ public class User {
 	private String birth_date;
 	@Column(nullable = false, unique = true)
 	private String username;
-//	@Column(nullable = false)
 	private String password;
 	
 	@OneToOne(cascade = CascadeType.ALL)
