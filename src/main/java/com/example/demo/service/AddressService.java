@@ -11,12 +11,22 @@ import com.example.demo.model.Address;
 public interface AddressService {
 	
 	/**
-	 * Create a new address in the database.
+	 * Add the restaurant address to the database.
 	 * 
 	 * @param address The Address object to be saved.
+	 * @param restaurantId The id of the restaurant to which the address belongs.
 	 * @return The saved Address object.
 	 */
-	Address saveAddress(Address address);
+	Address saveRestaurantAddress(Address address, long restaurantId);
+	
+	/**
+	 * Add the user address to the database.
+	 * 
+	 * @param address The Address object to be saved.
+	 * @param userId The id of the user to which the address belongs.
+	 * @return The saved Address object.
+	 */
+	Address saveUserAddress(Address address, long userId);
 	
 	/**
 	 * Get all addresses from the database.

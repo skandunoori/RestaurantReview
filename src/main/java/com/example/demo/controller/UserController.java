@@ -21,7 +21,7 @@ import com.example.demo.service.UserService;
  * Controller class for managing CRUD operations on User entities.
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
 	
 	private UserService userService;

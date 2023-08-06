@@ -22,7 +22,7 @@ import com.example.demo.service.RestaurantService;
  * Controller class for managing CRUD operations on Restaurant entities.
  */
 @RestController
-@RequestMapping("/restaurant")
+@RequestMapping("/api/v1/restaurant")
 public class RestaurantController {
 	
 	private RestaurantService restaurantService;

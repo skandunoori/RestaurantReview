@@ -21,7 +21,7 @@ import com.example.demo.service.AddressService;
  * Controller class for managing CRUD operations on Address entities.
  */
 @RestController
-@RequestMapping("/address")
+@RequestMapping("/api/v1/address")
 public class AddressController {
 	
 	
@@ -34,14 +34,27 @@ public class AddressController {
 	}
 	
 	/**
-	 * Create a new address.
+	 * Create a new address for the restaurant.
 	 * 
 	 * @param address The Address object containing address details to be saved.
+	 * @param restaurantId The id of the restaurant to which the address belongs.
 	 * @return The saved Address object.
 	 */
-	@PostMapping()
-	public Address saveAddress(@RequestBody Address address) {
-		return addressService.saveAddress(address);
+	@PostMapping("/restaurant/{restaurantId}")
+	public Address saveRestaurantAddress(@RequestBody Address address, @PathVariable("restaurantId") long restaurantId) {
+		return addressService.saveRestaurantAddress(address, restaurantId);
+	}
+	
+	/**
+	 * Create a new address for the user.
+	 * 
+	 * @param address The Address object containing address details to be saved.
+	 * @param userId The id of the user to which the address belongs.
+	 * @return The saved Address object.
+	 */
+	@PostMapping("/user/{userId}")
+	public Address saveUserAddress(@RequestBody Address address, @PathVariable("userId") long userId) {
+		return addressService.saveUserAddress(address, userId);
 	}
 	
 	/**

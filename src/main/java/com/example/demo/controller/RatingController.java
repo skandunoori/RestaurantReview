@@ -19,7 +19,7 @@ import com.example.demo.service.RatingService;
  * Controller class for managing CRUD operations on rating entities.
  */
 @RestController
-@RequestMapping("/rating")
+@RequestMapping("/api/v1/rating")
 public class RatingController {
 	
 	private RatingService ratingService;

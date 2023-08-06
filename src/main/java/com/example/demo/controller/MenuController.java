@@ -20,7 +20,7 @@ import com.example.demo.service.MenuService;
  * Controller class for managing CRUD operations on Menu entities.
  */
 @RestController
-@RequestMapping("/menu")
+@RequestMapping("/api/v1/menu")
 public class MenuController {
 	
 	private MenuService menuService;

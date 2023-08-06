@@ -20,7 +20,7 @@ import com.example.demo.service.ContactService;
  * Controller class for managing CRUD operations on Contact entities.
  */
 @RestController
-@RequestMapping("/contact")
+@RequestMapping("/api/v1/contact")
 public class ContactController {
 	
 	private ContactService contactService;

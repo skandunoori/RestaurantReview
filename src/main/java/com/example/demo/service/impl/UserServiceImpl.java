@@ -3,6 +3,8 @@ package com.example.demo.service.impl;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.example.demo.dao.UserRepo;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
@@ -15,14 +17,17 @@ public class UserServiceImpl implements UserService{
 	
 	
 	private UserRepo userRepository;
+	private final PasswordEncoder passwordEncoder;
 
-	public UserServiceImpl(UserRepo userRepository) {
+	public UserServiceImpl(UserRepo userRepository, PasswordEncoder passwordEncoder) {
 		super();
 		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
 	}
 
 	@Override
 	public User saveUser(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userRepository.save(user);
 	}
 

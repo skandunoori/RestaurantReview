@@ -20,7 +20,7 @@ import com.example.demo.service.CommentService;
  * Controller class for managing CRUD operations on Comment entities.
  */
 @RestController
-@RequestMapping("/comment")
+@RequestMapping("/api/v1/comment")
 public class CommentController {
 	
 	private CommentService commentService;
