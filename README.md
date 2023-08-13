@@ -15,27 +15,6 @@ User Entity
 Creating User does not need authentication. So no JWT has to be included for creating a user.
 | Http Method | Path | Description | Example | Bearer Token |
 |:-----------:|:----:|:-----------:|:-------:|:------------:|
-|POST|/api/v1/user|Adds user to DB. Expects the user to be present in the body.|{
-"first_name": "Sanjana",
-"last_name": "Kandunoori",
-"gender": "Female",
-"birth_date": "07-30-1997",
-"username": "sanju",
-"password": "sanju1234",
-"contact": {
-"mobileNumber":"5104930930",
-"email":"sanju@gmail.com"
-},
-"address": {
-"street": "19 Dal St",
-"apt": "C",
-"city": "Boston",
-"state": "Mass",
-"country": "US",
-"zipCode": "02130"
-}
-
-}
-|No|
+|POST|/api/v1/user|Adds user to DB. Expects the user to be present in the body.|{ "first_name": "Sanjana",<br/> "last_name": "Kandunoori",<br/>"gender": "Female",<br/>"birth_date": "07-30-1997",<br/>"username": "sanju",<br/>"password": "sanju1234",<br/>"contact": {<br/>"mobileNumber":"5104930930",<br/>"email":"sanju@gmail.com"<br/>},<br/>"address": {<br/>"street": "19 Dal St",<br/>"apt": "C",<br/>"city": "Boston",<br/>"state": "Mass",<br/>"country": "US",<br/>"zipCode": "02130"<br/>}<br/>}|No|
 
 
