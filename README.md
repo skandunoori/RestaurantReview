@@ -15,6 +15,8 @@ User Entity
 Creating User does not need authentication. So no JWT has to be included for creating a user.
 | Http Method | Path | Description | Example | Bearer Token |
 |:-----------:|:----:|-------------|---------|:------------:|
-|POST|/api/v1/user|Adds user to DB.|{<br/>&nbsp; "first_name": "Sanjana",<br/>&nbsp; "last_name": "Kandunoori",<br/>&nbsp;"gender": "Female",<br/>&nbsp;"birth_date": "07-30-1997",<br/>&nbsp;"username": "sanju",<br/>&nbsp;"password": "sanju1234",<br/>&nbsp;"contact": {<br/>&nbsp;&nbsp;"mobileNumber":"5104930930",<br/>&nbsp;&nbsp;"email":"sanju@gmail.com"<br/>&nbsp;&nbsp;},<br/>&nbsp;"address": {<br/>&nbsp;&nbsp;"street": "19 Dal St",<br/>&nbsp;&nbsp;"apt": "C",<br/>&nbsp;&nbsp;"city": "Boston",<br/>&nbsp;&nbsp;"state": "Mass",<br/>&nbsp;&nbsp;"country": "US",<br/>&nbsp;&nbsp;"zipCode": "02130"<br/>&nbsp;}<br/>}|No|
+|POST|/api/v1/user|Adds user to DB.|{<br/> &nbsp;"first_name": "Sanjana",<br/>&nbsp; "last_name": "Kandunoori",<br/>&nbsp;"gender": "Female",<br/>&nbsp;"birth_date": "07-30-1997",<br/>&nbsp;"username": "sanju",<br/>&nbsp;"password": "sanju1234",<br/>&nbsp;"contact": {<br/>&nbsp;&nbsp;"mobileNumber":"5104930930",<br/>&nbsp;&nbsp;"email":"sanju@gmail.com"<br/>&nbsp;&nbsp;},<br/>&nbsp;"address": {<br/>&nbsp;&nbsp;"street": "19 Dal St",<br/>&nbsp;&nbsp;"apt": "C",<br/>&nbsp;&nbsp;"city": "Boston",<br/>&nbsp;&nbsp;"state": "Mass",<br/>&nbsp;&nbsp;"country": "US",<br/>&nbsp;&nbsp;"zipCode": "02130"<br/>&nbsp;}<br/>}|No|
+|GET|/api/v1/user|Fetches all the users from the database.|<div align="center">No Body Required</div>|No|
+|GET|/api/v1/user/{id}/|Fetches user with a specific id.|<div align="center">No Body Required</div>|No|
 
 
