@@ -14,7 +14,7 @@ To run the Application follow the following Steps,
 User Entity
 Creating User does not need authentication. So no JWT has to be included for creating a user.
 | Http Method | Path | Description | Example | Bearer Token |
-|:-----------:|:----:|:-----------:|---------|:------------:|
+|:-----------:|:----:|-------------|---------|:------------:|
 |POST|/api/v1/user|Adds user to DB. Expects the user to be present in the body.|{<br/>&nbsp; "first_name": "Sanjana",<br/>&nbsp; "last_name": "Kandunoori",<br/>&nbsp;"gender": "Female",<br/>&nbsp;"birth_date": "07-30-1997",<br/>&nbsp;"username": "sanju",<br/>&nbsp;"password": "sanju1234",<br/>&nbsp;"contact": {<br/>&ensp;"mobileNumber":"5104930930",<br/>&ensp;"email":"sanju@gmail.com"<br/>&nbsp;},<br/>&nbsp;"address": {<br/>&ensp;"street": "19 Dal St",<br/>&ensp;"apt": "C",<br/>&ensp;"city": "Boston",<br/>&ensp;"state": "Mass",<br/>&ensp;"country": "US",<br/>&ensp;"zipCode": "02130"<br/>&nbsp;}<br/>}|No|
 
 
