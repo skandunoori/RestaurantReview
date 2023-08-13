@@ -13,3 +13,5 @@ To run the Application follow the following Steps,
 # API Documentation
 User Entity
 Creating User does not need authentication. So no JWT has to be included for creating a user.
+![image](https://github.com/skandunoori/RestaurantReview/assets/98115697/2e49df67-a20e-4615-b850-a6ca9ca6dbed)
+
