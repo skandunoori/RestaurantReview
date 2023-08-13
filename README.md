@@ -12,4 +12,4 @@ To run the Application follow the following Steps,
 
 # API Documentation
 User Entity
-Creating User doesnt need authentication. So no JWT has to be included for creating a user.
+Creating User does not need authentication. So no JWT has to be included for creating a user.
