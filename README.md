@@ -11,7 +11,7 @@ To run the Application follow the following Steps,
 4. This should bootup the application and the application starts running on port 8080.
 
 # API Documentation
-User Entity
+# User Entity
 Creating User does not need authentication. So no JWT has to be included for creating a user.
 | Http Method | Path | Description | Example | Bearer Token |
 |:-----------:|:----:|-------------|---------|:------------:|
@@ -21,7 +21,7 @@ Creating User does not need authentication. So no JWT has to be included for cre
 |PUT|/api/v1/user/{id}|Updates the user with details provided in the body.|{<br/>&nbsp; "first_name": "Kaushik",<br/>&nbsp; "last_name": "Boora",<br/>&nbsp; "gender": "Male",<br/>&nbsp;"birth_date": "07-30-1997",<br/>&nbsp;}|No|
 |DELETE|/api/v1/user/{id}|Deletes user with the id mentioned in the path variable.|<div align="center">No Body Required</div>|No|
 
-Restaurant Entity
+# Restaurant Entity
 Creating restaurant requires authorization. Hence JWT must be included in the header.
 | Http Method | Path | Description | Example | Bearer Token |
 |:-----------:|:----:|-------------|---------|:------------:|
@@ -31,8 +31,14 @@ Creating restaurant requires authorization. Hence JWT must be included in the he
 |PUT|/api/v1/restaurant/{id}|Updates the restaurant with details provided in the body.| {<br/> &nbsp; "name": "Aaha",<br/> &nbsp;}|Yes|
 |DELETE|/api/v1/restaurant/{id}|Deletes restaurant with the id mentioned in the path variable|<div align="center">No Body Required</div>|Yes|
 
-Address Entity
+# Address Entity
 Creating address requires authorization. Hence JWT must be included in the header.
-
+| Http Method | Path | Description | Example | Bearer Token |
+|:-----------:|:----:|-------------|---------|:------------:|
+|POST|/api/v1/address/restaurant/{restaurantId}|Updates the Address of a Restaurant by creating a new address.|  {<br/> &nbsp;&nbsp;"street": "19 Dal st",<br/> &nbsp;&nbsp;"apt": "B",<br/> &nbsp;&nbsp;"city": "Boston",<br/> &nbsp;&nbsp;"state": "Mass",<br/> &nbsp;&nbsp;"country": "US",<br/> &nbsp;&nbsp;"zipCode": "02130"<br/> &nbsp;}|Yes|
+|POST|/api/v1/address/user/{userId}|Updates the Address of a user by creating a new address.|  {<br/> &nbsp;&nbsp;"street": "9 Elmore st",<br/> &nbsp;&nbsp;"apt": "A",<br/> &nbsp;&nbsp;"city": "Boston",<br/> &nbsp;&nbsp;"state": "Mass",<br/> &nbsp;&nbsp;"country": "US",<br/> &nbsp;&nbsp;"zipCode": "02130"<br/> &nbsp;}|Yes|
+|GET|/api/v1/address|Fetches all the addresses from the database.|<div align="center">No Body Required</div>|Yes|
+|GET|/api/v1/address/{id}|Fetches address with a specific id from the database.|<div align="center">No Body Required</div>|Yes|
+|PUT|/api/v1/address|Updates the address with the details provided in the body|  {<br/> &nbsp;&nbsp;"street": "198 Am st",<br/> &nbsp;&nbsp;"apt": "A",<br/> &nbsp;&nbsp;"city": "Boston",<br/> &nbsp;&nbsp;"state": "Mass",<br/> &nbsp;&nbsp;"country": "US",<br/> &nbsp;&nbsp;"zipCode": "02130"<br/> &nbsp;}|Yes|
 
 
